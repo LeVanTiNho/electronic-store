@@ -3,7 +3,6 @@ package com.example.electronicstore.controller;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.electronicstore.dto.DealDTO;
-import com.example.electronicstore.dto.UpdateDealDTO;
 import com.example.electronicstore.entity.Deal;
 import com.example.electronicstore.service.DealService;
 
@@ -35,7 +34,7 @@ public class DealController {
     }
 
     @PutMapping("/{id}")
-    public DealDTO updateDeal(@PathVariable Long id, @RequestBody UpdateDealDTO updateDealDTO) {
+    public DealDTO updateDeal(@PathVariable Long id, @RequestBody DealDTO updateDealDTO) {
         return dealService.updateDeal(id, updateDealDTO);
     }
 

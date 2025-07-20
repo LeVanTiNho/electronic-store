@@ -14,9 +14,6 @@ public class Deal {
     private Long id;
 
     @Column(nullable = false)
-    private String productId;
-
-    @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
