@@ -1,9 +1,9 @@
-package com.example.electricstore.service;
+package com.example.electronicstore.service;
 
 import org.springframework.stereotype.Service;
 
-import com.example.electricstore.entity.Product;
-import com.example.electricstore.repository.ProductRepository;
+import com.example.electronicstore.entity.Product;
+import com.example.electronicstore.repository.ProductRepository;
 
 import java.util.List;
 

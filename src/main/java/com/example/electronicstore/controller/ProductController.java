@@ -1,4 +1,4 @@
-package com.example.electricstore.controller;
+package com.example.electronicstore.controller;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.electricstore.entity.Product;
-import com.example.electricstore.service.ProductService;
+import com.example.electronicstore.entity.Product;
+import com.example.electronicstore.service.ProductService;
 
 @RestController
 @RequestMapping("/api/products")

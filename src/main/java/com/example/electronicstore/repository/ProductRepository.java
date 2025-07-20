@@ -1,8 +1,8 @@
-package com.example.electricstore.repository;
+package com.example.electronicstore.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.electricstore.entity.Product;
+import com.example.electronicstore.entity.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
     // This interface will automatically inherit methods for CRUD operations

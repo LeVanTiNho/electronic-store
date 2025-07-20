@@ -1,7 +1,7 @@
-package com.example.electricstore.repository;
+package com.example.electronicstore.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.example.electricstore.entity.Deal;
+import com.example.electronicstore.entity.Deal;
 
 public interface DealRepository extends JpaRepository<Deal, Long> {
     // Inherits CRUD methods for Deal entities

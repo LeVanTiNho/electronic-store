@@ -1,4 +1,4 @@
-package com.example.electricstore.entity;
+package com.example.electronicstore.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -14,7 +14,10 @@ public class Deal {
     private Long id;
 
     @Column(nullable = false)
-    private String title;
+    private String productId;
+
+    @Column(nullable = false)
+    private String name;
 
     @Column(nullable = false)
     private Double discount;

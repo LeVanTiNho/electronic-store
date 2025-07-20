@@ -1,4 +1,4 @@
-package com.example.electricstore.entity;
+package com.example.electronicstore.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

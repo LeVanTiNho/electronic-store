@@ -1,8 +1,11 @@
-package com.example.electricstore.controller;
+package com.example.electronicstore.controller;
 
 import org.springframework.web.bind.annotation.*;
-import com.example.electricstore.entity.Deal;
-import com.example.electricstore.service.DealService;
+
+import com.example.electronicstore.dto.DealDTO;
+import com.example.electronicstore.dto.UpdateDealDTO;
+import com.example.electronicstore.entity.Deal;
+import com.example.electronicstore.service.DealService;
 
 import java.util.List;
 
@@ -17,23 +20,23 @@ public class DealController {
     }
 
     @GetMapping
-    public List<Deal> getAllDeals() {
+    public List<DealDTO> getAllDeals() {
         return dealService.getAllDeals();
     }
 
     @GetMapping("/{id}")
-    public Deal getDealById(@PathVariable Long id) {
+    public DealDTO getDealById(@PathVariable Long id) {
         return dealService.getDealById(id);
     }
 
     @PostMapping
-    public Deal createDeal(@RequestBody Deal deal) {
+    public DealDTO createDeal(@RequestBody Deal deal) {
         return dealService.saveDeal(deal);
     }
 
     @PutMapping("/{id}")
-    public Deal updateDeal(@PathVariable Long id, @RequestBody Deal deal) {
-        return dealService.updateDeal(id, deal);
+    public DealDTO updateDeal(@PathVariable Long id, @RequestBody UpdateDealDTO updateDealDTO) {
+        return dealService.updateDeal(id, updateDealDTO);
     }
 
     @DeleteMapping("/{id}")
