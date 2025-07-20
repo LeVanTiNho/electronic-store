@@ -4,9 +4,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.electronicstore.entity.DealApplication;
+import com.example.electronicstore.entity.DealApplicationId;
 import com.example.electronicstore.entity.Product;
 import com.example.electronicstore.dto.ProductDTO;
 import com.example.electronicstore.mapper.ProductMapper;
+import com.example.electronicstore.repository.DealApplicationRepository;
 import com.example.electronicstore.repository.ProductRepository;
 
 import java.util.List;
@@ -14,10 +17,13 @@ import java.util.List;
 @Service
 public class ProductService {
     private final ProductRepository productRepository;
+    private final DealApplicationRepository dealApplicationRepository;
     private final ProductMapper productMapper;
 
-    public ProductService(ProductRepository productRepository, ProductMapper productMapper) {
+    public ProductService(ProductRepository productRepository, ProductMapper productMapper, 
+                          DealApplicationRepository dealApplicationRepository) {
         this.productRepository = productRepository;
+        this.dealApplicationRepository = dealApplicationRepository;
         this.productMapper = productMapper;
     }
 
@@ -66,5 +72,22 @@ public class ProductService {
 
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
+    }
+
+    @Transactional(isolation = Isolation.SERIALIZABLE)
+    public void addDealsToProduct(Long productId, List<Long> dealIds) {
+        // todo: verify if product exists, deal exists, and add deals to product
+
+        List<DealApplication> dealApplications = dealIds.stream()
+            .map(dealId -> {
+                DealApplicationId dealApplicationId = new DealApplicationId();
+                dealApplicationId.setProductId(productId);
+                dealApplicationId.setDealId(dealId);
+                DealApplication dealApplication = new DealApplication();
+                return dealApplication;
+            })
+            .toList();
+      
+        dealApplicationRepository.saveAll(dealApplications);
     }
 }

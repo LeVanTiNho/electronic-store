@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.electronicstore.dto.ProductDTO;
 import com.example.electronicstore.service.ProductService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping("/api/products")
@@ -41,5 +44,11 @@ public class ProductController {
     public String deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
         return "Product deleted successfully";
+    }
+
+    @PostMapping("/{id}/add-deals")
+    public String postMethodName(@PathVariable Long productId, @RequestBody List<Long> dealIds) {
+        productService.addDealsToProduct(productId, dealIds);
+        return "Deals added to product successfully";
     }
 }
