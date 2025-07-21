@@ -47,7 +47,7 @@ public class ProductController {
     }
 
     @PostMapping("/{id}/add-deals")
-    public String postMethodName(@PathVariable Long productId, @RequestBody List<Long> dealIds) {
+    public String addDealsToProduct(@PathVariable Long productId, @RequestBody List<Long> dealIds) {
         productService.addDealsToProduct(productId, dealIds);
         return "Deals added to product successfully";
     }
