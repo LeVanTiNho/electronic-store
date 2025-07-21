@@ -45,31 +45,25 @@ public class DealService {
             throw new RuntimeException("Deal not found");
         }
         Deal currentDeal = currentDealFindResult.get();
-
         Boolean isUpdateRequired = false;
-
         if (dealDTO.getName() != null) {
             currentDeal.setName(dealDTO.getName());
             isUpdateRequired = true;
         }
-
         if (dealDTO.getDiscount() != null) {
             currentDeal.setDiscount(dealDTO.getDiscount());
             isUpdateRequired = true;
         }
-
         if (dealDTO.getDescription() != null) {
             currentDeal.setDescription(dealDTO.getDescription());
             isUpdateRequired = true;
         }
-
         if (isUpdateRequired) {
             Deal updatedDeal = dealRepository.save(currentDeal);
             return dealMapper.toDTO(updatedDeal);
         } else {
             return dealMapper.toDTO(currentDeal);
         }
-
     }
 
     public void deleteDeal(Long id) {
