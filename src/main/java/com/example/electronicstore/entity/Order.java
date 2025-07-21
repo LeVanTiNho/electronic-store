@@ -14,7 +14,7 @@ public class Order {
     private Long id;
 
     @Column(nullable = false)
-    private Long productId;
+    private Long clientId;
 
     @Column(nullable = false)
     private Integer status;
